@@ -36,12 +36,12 @@ class MyAppState extends State<MyApp> {
       ]
     },
     {
-      'question': 'What\'s your favorite football team ?',
+      'question': 'Where do you want to spend your honey moon ? ',
       'answers': [
-        {'text': 'Liverpool', 'flag': true},
-        {'text': 'Real Madrid', 'flag': false},
-        {'text': 'Barcelona', 'flag': false},
-        {'text': 'Bayern Munich', 'flag': false}
+        {'text': 'Paris', 'flag': true},
+        {'text': 'Hawaii', 'flag': false},
+        {'text': 'Maldives', 'flag': true},
+        {'text': 'Thailand', 'flag': false}
       ]
     },
     {
@@ -51,6 +51,42 @@ class MyAppState extends State<MyApp> {
         {'text': 'Braveness', 'flag': false},
         {'text': 'Intelligence', 'flag': true},
         {'text': 'Kindness', 'flag': false}
+      ]
+    },
+    {
+      'question': 'Which programming language you had learnt first? ',
+      'answers': [
+        {'text': 'Java', 'flag': false},
+        {'text': 'Python', 'flag': true},
+        {'text': 'C++', 'flag': false},
+        {'text': 'Dart', 'flag': false}
+      ]
+    },
+    {
+      'question': 'What\'s your favorite hobby ? ',
+      'answers': [
+        {'text': 'Reading Novels', 'flag': false},
+        {'text': 'Drawing', 'flag': false},
+        {'text': 'Video games', 'flag': true},
+        {'text': 'Football', 'flag': true}
+      ]
+    },
+    {
+      'question': 'What\'s your favorite football team ?',
+      'answers': [
+        {'text': 'Liverpool', 'flag': true},
+        {'text': 'Real Madrid', 'flag': false},
+        {'text': 'Barcelona', 'flag': false},
+        {'text': 'Bayern Munich', 'flag': false}
+      ]
+    },
+    {
+      'question': 'Who is your  most favourite player ? ',
+      'answers': [
+        {'text': 'Messi', 'flag': false},
+        {'text': 'C.Ronaldo', 'flag': false},
+        {'text': 'Xavi', 'flag': true},
+        {'text': 'F.Toti', 'flag': false},
       ]
     },
   ];
@@ -66,23 +102,25 @@ class MyAppState extends State<MyApp> {
 
   void restartQuiz() {
     setState(() {
-      _index=0;
-      _score=0;
+      _index = 0;
+      _score = 0;
     });
-
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.redAccent,
-              title: Text("Quizes"),
-              //backgroundColor: Colors.cyanAccent,
-            ),
-            body: _index < _questions.length
-                ? Quiz(_nextQuestion, _questions, _index)
-                : Result(_score,restartQuiz)));
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.teal[400],
+          title: Text("Quizes"),
+          //backgroundColor: Colors.cyanAccent,
+        ),
+        body: _index < _questions.length
+            ? Quiz(_nextQuestion, _questions, _index)
+            : Result(_score, restartQuiz),
+        backgroundColor: Colors.lightBlue[100],
+      ),
+    );
   }
 }

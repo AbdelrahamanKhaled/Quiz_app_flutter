@@ -10,27 +10,48 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(children: [
-      Text(
-        "Congratulations!! You made it Your Score is ${score}",
-        style: TextStyle(color: Colors.lightBlue, fontSize: 30),
-        textAlign: TextAlign.center,
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: 40),
+            child: Text(
+              "Congratulations!! You made it ^_^ ",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 40, bottom: 20, left: 50, right: 45),
+            //color: Colors.lightBlue,
+            child: Column(
+              children: [
+                Text(
+                  'Your Score is : ${score}/8',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: FlatButton(
+              child: Text(
+                'Restart the quiz',
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: resart,
+              color: Colors.deepOrangeAccent,
+            ),
+          ),
+        ],
       ),
-      FlatButton(child: Text('Restart the quiz' , style: TextStyle(color: Colors.white),), onPressed: resart , color: Colors.lightBlue)
-    ]));
-    // return Container(
-    //   width: double.infinity,
-    //   height: 300,
-    //   color: Colors.teal,
-    //   child: Text(
-    //     "Your Score is ${score}",
-    //     style: TextStyle(
-    //       color: Colors.white,
-    //       fontSize: 30,
-    //       fontWeight: FontWeight.bold,
-    //     ),
-    //     textAlign: TextAlign.center,
-    //   ),
-    // );
+    );
   }
 }
